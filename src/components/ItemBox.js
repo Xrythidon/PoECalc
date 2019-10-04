@@ -28,7 +28,12 @@ const ItemBox = () => {
                         <span className="">
                             Energy Shield: {state.armorTotal}
                             <span className="item-stat-seperator"></span>
+                            <p>Explicit Flat:</p>
                             <ItemAttrInput attribute={state.explicitFlat} actionType={"setExplicitFlat"} stateAttrName={"explicitFlat"} updateAttribute={updateAttribute.bind(this)} />
+                            <p>Explicit Increased:</p>
+                            <ItemAttrInput attribute={state.explicitIncreased} actionType={"setExplicitIncreased"} stateAttrName={"explicitIncreased"} updateAttribute={updateAttribute.bind(this)} />
+                            <p>total quality:</p>
+                            <ItemAttrInput attribute={state.totalQuality} actionType={"setTotalQuality"} stateAttrName={"totalQuality"} updateAttribute={updateAttribute.bind(this)} />
                         </span>
                     </span>
                 </span>
