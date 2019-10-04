@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './styles/fonts/Fontin-SmallCaps.ttf'
+import './styles/styles.scss'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
