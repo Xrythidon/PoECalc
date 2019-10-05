@@ -70,9 +70,7 @@ function App() {
 
     </ItemAttrContext.Provider>
   );
-
 }
-
 
 export default App;
 
@@ -89,7 +87,7 @@ That's about it.
 Things to work on:
 Organize Reducer/Dispatch stuff into own files <*
 Handle 0 & null values for input values <-*
-Create and hook all inputs to attributes <-
+Create and hook all inputs to attributes <-*
 ItemBox inputs CSS <-
 ItemBox baseType Check for name (energy shield i.e.) <-
 */

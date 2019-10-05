@@ -1,9 +1,10 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import ItemAttrInput from "./ItemAttrInput"
 import itemAttrContext from "../context/itemAttrContext"
+import {headerBaseType} from "../renamers/headerBaseType"
 
 const ItemBox = () => {
-    const {state, dispatch} = useContext(itemAttrContext)
+    const { state, dispatch } = useContext(itemAttrContext)
     // Make switch statement grabbing basetype from parent component
     // Parent component should be handling all baseType logic
     // i.e. ES basetype turns into "Energy Shield: "
@@ -26,10 +27,9 @@ const ItemBox = () => {
                 <span className="">
                     <span className="">
                         <span className="">
-                            Energy Shield: {state.armorTotal}
+                            {headerBaseType("Armor Type", state)}: {state.armorTotal}
                             <span className="item-stat-seperator"></span>
-                            <p>Explicit Flat:</p>
-                            <ItemAttrInput attribute={state.explicitFlat} actionType={"setExplicitFlat"} stateAttrName={"explicitFlat"} updateAttribute={updateAttribute.bind(this)} />
+                            <ItemAttrInput attribute={state.explicitFlat} actionType={"setExplicitFlat"} stateAttrName={"explicitFlat"} label={"Explicit Flat:"} updateAttribute={updateAttribute.bind(this) } />
                             <p>Explicit Increased:</p>
                             <ItemAttrInput attribute={state.explicitIncreased} actionType={"setExplicitIncreased"} stateAttrName={"explicitIncreased"} updateAttribute={updateAttribute.bind(this)} />
                             <p>total quality:</p>
@@ -37,11 +37,11 @@ const ItemBox = () => {
                         </span>
                     </span>
                 </span>
-                <img src={state.itemImg}/> 
+                <img src={state.itemImg} />
             </span>
         </div>
-                )
+    )
 }
 
 
-export {ItemBox as default}
+export { ItemBox as default }
