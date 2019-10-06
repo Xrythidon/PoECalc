@@ -40,7 +40,7 @@ export const getTotalArmor = (e) => {
 
     switch (baseType) {
         case "ES":
-            regex = new RegExp(/(?<=Energy Shield: )(\d{1,3})/);
+            regex = new RegExp(/(?:^|Energy Shield: )(\d{1,3})/);
             break;
         default:
             return (text = "Error")
@@ -49,7 +49,7 @@ export const getTotalArmor = (e) => {
     const match = regex.test(e.target.value)
 
     if (match) {
-        text = e.target.value.match(regex)[0];
+        text = e.target.value.match(regex)[1];
     }
     return parseInt(text);
 }
@@ -58,12 +58,13 @@ export const getTotalArmor = (e) => {
 export const getTotalQuality = (e) => {
     let text = 0;
 
-    const regex = new RegExp(/(?<=Quality: \+)(\d{1,3})/);
+    //const regex = new RegExp(/(?<=Quality: \+)(\d{1,3})/);
+    const regex = new RegExp(/(?:^|Quality: \+)(\d{1,3})/);
 
     const match = regex.test(e.target.value)
 
     if (match) {
-        text = e.target.value.match(regex)[0];
+        text = e.target.value.match(regex)[1];
     }
     return parseInt(text);
 
@@ -75,7 +76,8 @@ export const getExplicitFlat = (e) => {
 
     switch (baseType) {
         case "ES":
-            regex = new RegExp(/(\d{1,3})(?= to maximum Energy Shield)/);
+            //regex = new RegExp(/(\d{1,3})(?= to maximum Energy Shield)/);
+            regex = new RegExp(/(\d{1,3})(?: to maximum Energy Shield)/);
             break;
         default:
             return (text = "Error")
@@ -84,7 +86,7 @@ export const getExplicitFlat = (e) => {
     const match = regex.test(e.target.value)
 
     if (match) {
-        text = e.target.value.match(regex)[0];
+        text = e.target.value.match(regex)[1];
     }
     return parseInt(text);
 }
@@ -95,7 +97,8 @@ export const getExplicitedIncreased = (e) => {
 
     switch (baseType) {
         case "ES":
-            regex = new RegExp(/(\d{1,3})(?=% increased Energy Shield)/);
+          //  regex = new RegExp(/(\d{1,3})(?=% increased Energy Shield)/);
+            regex = new RegExp(/(\d{1,3})(?:% increased Energy Shield)/);
             break;
         default:
             return (text = "Error")
@@ -104,7 +107,7 @@ export const getExplicitedIncreased = (e) => {
     const match = regex.test(e.target.value)
 
     if (match) {
-        text = e.target.value.match(regex)[0];
+        text = e.target.value.match(regex)[1];
     }
     return parseInt(text);
 

@@ -52,21 +52,20 @@ function App() {
   // Recalculates final armor on every state change
   useEffect(() => {
     recalculateFinalArmor(dispatch, state, setArmorTotal);
-    console.log(state);
   }, [state.explicitFlat, state.explicitIncreased, state.totalQuality, state.armorBase])
 
   return (
     <ItemAttrContext.Provider value={{ state, dispatch }}>
       <textarea className="textarea" placeholder="Paste PoE Clipboard Here" cols="30" row="5" onChange={(e) => fireDispatch(e)}>
       </textarea>
-      <p>
+
         <p>ArmorBaseType:{state.armorBaseType}</p>
         armorTotal:{state.armorTotal + " "}
         ArmorBaseValue:{state.armorBase + " "}
         ArmorExplicitFlat:{state.explicitFlat + " "}
         ArmorExplicitIncreased:{state.explicitIncreased + " "}
         ArmorTotalQuality:{state.totalQuality + " "}
-      </p>
+
       <ItemBox />
 
     </ItemAttrContext.Provider>
@@ -89,6 +88,6 @@ Things to work on:
 Organize Reducer/Dispatch stuff into own files <*
 Handle 0 & null values for input values <-*
 Create and hook all inputs to attributes <-*
-ItemBox inputs CSS <-
-ItemBox baseType Check for name (energy shield i.e.) <-
+ItemBox inputs CSS <-x
+ItemBox baseType Check for name (energy shield i.e.) <-x
 */

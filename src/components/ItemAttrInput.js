@@ -14,11 +14,8 @@ const ItemAttrInput = ({ attribute, updateAttribute, actionType, stateAttrName, 
             <label htmlFor="name" className="label-name">
                 <span className="content-name"></span>
             </label>
-
         </div>
     )
-
 }
-
 
 export { ItemAttrInput as default }
