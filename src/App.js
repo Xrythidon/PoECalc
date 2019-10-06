@@ -52,11 +52,12 @@ function App() {
   // Recalculates final armor on every state change
   useEffect(() => {
     recalculateFinalArmor(dispatch, state, setArmorTotal);
+    console.log(state);
   }, [state.explicitFlat, state.explicitIncreased, state.totalQuality, state.armorBase])
 
   return (
     <ItemAttrContext.Provider value={{ state, dispatch }}>
-      <textarea onChange={(e) => fireDispatch(e)}>
+      <textarea className="textarea" placeholder="Paste PoE Clipboard Here" cols="30" row="5" onChange={(e) => fireDispatch(e)}>
       </textarea>
       <p>
         <p>ArmorBaseType:{state.armorBaseType}</p>

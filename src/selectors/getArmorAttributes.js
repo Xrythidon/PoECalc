@@ -36,7 +36,7 @@ export const findBaseType = (e) => {
 
 export const getTotalArmor = (e) => {
     let regex;
-    let text = "";
+    let text = 0;
 
     switch (baseType) {
         case "ES":
@@ -56,11 +56,11 @@ export const getTotalArmor = (e) => {
 
 
 export const getTotalQuality = (e) => {
+    let text = 0;
 
     const regex = new RegExp(/(?<=Quality: \+)(\d{1,3})/);
 
     const match = regex.test(e.target.value)
-    let text = "";
 
     if (match) {
         text = e.target.value.match(regex)[0];
@@ -71,7 +71,7 @@ export const getTotalQuality = (e) => {
 
 export const getExplicitFlat = (e) => {
     let regex;
-    let text = "";
+    let text = 0;
 
     switch (baseType) {
         case "ES":
@@ -91,7 +91,7 @@ export const getExplicitFlat = (e) => {
 
 export const getExplicitedIncreased = (e) => {
     let regex;
-    let text = "";
+    let text = 0;
 
     switch (baseType) {
         case "ES":

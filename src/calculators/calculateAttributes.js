@@ -1,5 +1,5 @@
-export const calculateBase = (dispatch, state, setBaseArmor) => {
-    const base = (state.armorTotal / (1 + ((state.explicitIncreased + state.totalQuality) / 100))) - state.explicitFlat;
+export const calculateBase = (dispatch, {armorTotal, explicitIncreased, explicitFlat, totalQuality}, setBaseArmor) => {
+    const base = (armorTotal / (1 + ((explicitIncreased + totalQuality) / 100))) - explicitFlat;
     dispatch(setBaseArmor(Math.round(base)))
   }
 
