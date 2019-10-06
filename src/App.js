@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from 'react';
 
-import { findBaseTypeObject, getTotalArmor, getExplicitFlat, getExplicitedIncreased, getTotalQuality, baseType, itemImg, itemSlot, itemBaseName } from "./selectors/getArmorAttributes"
+import { findBaseTypeObject, getTotalArmor, getExplicitFlat, getExplicitedIncreased, getTotalQuality, baseType, itemImg, itemSlot, itemBaseName, parseNewLine } from "./selectors/getArmorAttributes"
 import { setArmorTotal, setExplicitFlat, setExplicitIncreased, setTotalQuality, setBaseArmor } from "./actions/attributes"
 import { setBaseType, setItemBaseName, setItemImg, setItemSlot } from "./actions/itemMap"
 import ItemBox from "./components/ItemBox"
@@ -42,6 +42,9 @@ function App() {
     dispatch(setExplicitFlat(getExplicitFlat(e)));
     dispatch(setExplicitIncreased(getExplicitedIncreased(e)));
     dispatch(setTotalQuality(getTotalQuality(e)));
+
+    //Testing New Regex
+    parseNewLine(e);
   }
 
   // Calculates baseType initial parse

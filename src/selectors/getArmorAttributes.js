@@ -33,7 +33,6 @@ export const findBaseType = (e) => {
 }
 
 
-
 export const getTotalArmor = (e) => {
     let regex;
     let text = 0;
@@ -111,4 +110,50 @@ export const getExplicitedIncreased = (e) => {
     }
     return parseInt(text);
 
+}
+
+// New /n regex
+// Use /n to parse every line and use a for loop to grab the last attributes
+
+export const parseNewLine = (e) => {
+    const match = e.target.value.match(/.*\n/g) || [];
+    const numLineBreaks = match.length;
+    let dashCounter = 0;
+    let affixLineStart = 0;
+
+    // make to regex one for matching string and one for number
+    // then add to object
+
+    const regexText = (/[a-zA-Z ]+/); 
+    const regexNum = (/[0-9]+/);
+
+
+   const attrObject = {
+       // "maximum es" : 100,
+    }
+
+    for(let i = 0; i < numLineBreaks ;i++){
+        if(match[i].match(/--------/)){
+            dashCounter++;
+            if(dashCounter === 5){
+                affixLineStart = i;
+                // after 5 dashes we get access to item affixes
+            }
+        }
+        
+        //Prints Affixes on Any Item. :D
+        if(!!affixLineStart && i > affixLineStart){
+            //console.log(match[i]);
+            const key = match[i].match(regexText)[0].trim();
+            const value = parseInt(match[i].match(regexNum)[0]);
+
+            attrObject[key] = value;
+        }
+
+        // Input Validation Max Lines
+        if(numLineBreaks > 25){
+            return;
+        }
+    }
+    console.log(attrObject);
 }
